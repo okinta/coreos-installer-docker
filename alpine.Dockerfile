@@ -1,9 +1,8 @@
-FROM ubuntu:18.04
+FROM alpine:3.11
 
-RUN apt update && apt install -y \
-    cargo \
-    libssl-dev \
-    pkg-config \
+RUN apk add --no-cache \
+        cargo \
+        openssl-dev \
     && cargo install coreos-installer
 
 FROM alpine:3.11
